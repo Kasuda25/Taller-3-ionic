@@ -17,7 +17,7 @@ export class VaccinePage implements OnInit {
   }
 
   goToVaccinePage() {
-    this.router.navigate(['/vaccine-component']);  
+    this.router.navigate(['/vaccine']);  
   }
 
   addVaccine(vaccineData: { name: string; date: string }) {
