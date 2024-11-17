@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { ButtonComponent } from './Components/button/button.component';
 
-const COMPONENTS = [ButtonComponent];
+import { IonicModule } from '@ionic/angular';
+
+import { LoginPageRoutingModule } from './login-routing.module';
+
+import { LoginPage } from './login.page';
 
 @NgModule({
-  declarations: [...COMPONENTS],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule
+    IonicModule,
+    LoginPageRoutingModule
   ],
-  exports: [...COMPONENTS]
+  declarations: [LoginPage]
 })
-export class SharedModule { }
+export class LoginPageModule {}
