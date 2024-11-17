@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ pet ? 'Editar Mascota' : 'Agregar Mascota' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input formControlName="age" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Raza</ion-label>
+      <ion-input formControlName="breed"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="petForm.invalid">
+      {{ pet ? 'Actualizar' : 'Agregar' }}
+    </ion-button>
+  </form>
+</ion-content>
