@@ -4,17 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { VaccinePageRoutingModule } from './vaccine-routing.module';
-
-import { VaccinePage } from './vaccine.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VaccinePageRoutingModule
   ],
-  declarations: [VaccinePage]
+  declarations: []
 })
 export class VaccinePageModule {}
