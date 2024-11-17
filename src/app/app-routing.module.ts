@@ -20,6 +20,28 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'vaccine',
+    loadChildren: () => import('src/app/Pages/vaccine/vaccine.module').then( m => m.VaccinePageModule)
+  },
+
+  {
+    path: 'home',
+    loadChildren: () => import('src/app/Pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('src/app/Pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('src/app/Pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'pets',
     loadChildren: () => import('src/app/Pages/pets/pets/pets.module').then( m => m.PetModule)
   },
@@ -34,6 +56,8 @@ const routes: Routes = [
 
 
 ];
+
+
 
 @NgModule({
   imports: [

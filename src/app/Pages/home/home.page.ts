@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController para la navegación
+import { NavController } from '@ionic/angular'; 
+import { Router } from '@angular/router';  
+
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,19 +13,23 @@ import { NavController } from '@ionic/angular'; // Importa NavController para la
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private router: Router) { }
 
-  // Función para regresar a la página anterior
+  
   goBack() {
-    this.navCtrl.back(); // Vuelve a la página anterior
+    this.navCtrl.back(); 
   }
 
-  // Funciones para la navegación
+  
   goToPetList() {
-    this.navCtrl.navigateForward('/pet-list'); // Navega a la página de listado de mascotas
+    this.navCtrl.navigateForward('/pet-list'); 
   }
 
   goToPetForm() {
-    this.navCtrl.navigateForward('/pet-form'); // Navega a la página de registro de mascotas
+    this.navCtrl.navigateForward('/pet-form'); 
+  }
+
+  goToVaccinePage() {
+    this.router.navigate(['/vaccine']);
   }
 }
