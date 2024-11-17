@@ -6,13 +6,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
-  },  {
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./Login/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('src/app/pages/login/login.page').then( m => m.LoginPage)
   },
   {
     path: 'register',
-    loadChildren: () => import('./Register/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('src/app/pages/register/register.page').then( m => m.RegisterPage)
   }
 
 ];
