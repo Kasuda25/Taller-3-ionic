@@ -5,8 +5,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    RegisterPageRoutingModule,
-    SharedModule
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RegisterPageRoutingModule
   ],
   declarations: [RegisterPage]
 })
