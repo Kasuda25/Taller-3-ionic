@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular'; // Importa NavController para la navegación
+import { Router } from '@angular/router';  // Importar Router
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,7 +12,7 @@ import { NavController } from '@ionic/angular'; // Importa NavController para la
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private router: Router) { }
 
   // Función para regresar a la página anterior
   goBack() {
@@ -22,5 +26,9 @@ export class HomePage {
 
   goToPetForm() {
     this.navCtrl.navigateForward('/pet-form'); // Navega a la página de registro de mascotas
+  }
+
+  goToVaccinePage() {
+    this.router.navigate(['/vaccine']);
   }
 }
