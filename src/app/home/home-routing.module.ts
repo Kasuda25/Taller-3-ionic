@@ -6,7 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },  {
+    path: 'login',
+    loadChildren: () => import('./Login/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./Register/register/register.module').then( m => m.RegisterPageModule)
   }
+
 ];
 
 @NgModule({
