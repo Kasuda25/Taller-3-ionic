@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">Volver</ion-button>
+    </ion-buttons>
+    <ion-title>Formulario de Mascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Aquí va el contenido del formulario -->
+  <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la mascota</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <!-- Otros campos del formulario -->
+
+    <ion-button expand="full" type="submit" [disabled]="!petForm.valid">Guardar</ion-button>
+  </form>
+</ion-content>

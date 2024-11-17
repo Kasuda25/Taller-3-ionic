@@ -1,20 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="home-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido a mascotips</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Explora nuestras funciones y servicios desde aquí.</p>
+      </ion-card-content>
+    </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card button (click)="goToPetList()">
+            <ion-card-header>
+              <ion-card-title>Ver Mascotas</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-icon name="paw" size="large"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-card button (click)="goToPetForm()">
+            <ion-card-header>
+              <ion-card-title>Registrar Mascota</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-icon name="add-circle" size="large"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

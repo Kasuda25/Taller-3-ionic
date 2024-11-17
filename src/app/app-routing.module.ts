@@ -11,6 +11,20 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'pet-list',
+    loadChildren: () => import('./pet/pet-list/pet-list.module').then( m => m.PetListPageModule)
+  },
+  {
+    path: 'pet-form',
+    loadChildren: () => import('./pet/pet-form/pet-form.module').then( m => m.PetFormPageModule)
+  },
+  {
+  path: 'pets',
+  loadChildren: () =>
+    import('./pet/pet.module').then((m) => m.PetModule),
+  }
+
 ];
 
 @NgModule({
