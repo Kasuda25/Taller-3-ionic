@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-import { VaccineService } from '../../services/vaccine.service';
+import { VaccineService } from '../../shared/services/vaccine-service/vaccine.service';
 
 @Component({
   selector: 'app-vaccine',
