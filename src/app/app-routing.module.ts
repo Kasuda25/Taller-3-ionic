@@ -4,42 +4,38 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('src/app/pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('src/app/pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('src/app/pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('src/app/pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('src/app/pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('src/app/pages/register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'vaccine',
+    loadChildren: () => import('src/app/pages/vaccine/vaccine.module').then(m => m.VaccinePageModule)
+  },
+  {
+    path: 'pets',
+    loadChildren: () => import('src/app/pages/pets/pets/pets.module').then(m => m.PetModule)
+  },
+  {
+    path: 'petlist',
+    loadChildren: () => import('./pages/pets/petlist/petlist.module').then(m => m.PetlistPageModule)
+  },
+  {
+    path: 'petform',
+    loadChildren: () => import('./pages/pets/petform/petform.module').then(m => m.PetformPageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'vaccine',
-    loadChildren: () => import('src/app/pages/vaccine/vaccine.module').then( m => m.VaccinePageModule)
-  },
-  {
-    path: 'pets',
-    loadChildren: () => import('src/app/pages/pets/pets/pets.module').then( m => m.PetModule)
-  },
-  {
-    path: 'petform',
-    loadChildren: () => import('src/app/pages/pets/petform/petform.component').then( m => m.PetFormComponent)
-  },
-  {
-    path: 'petlist',
-    loadChildren: () => import('src/app/pages/pets/petlist/petlist.component').then( m => m.PetListComponent)
-  },
-
-
 ];
-
-
 
 @NgModule({
   imports: [

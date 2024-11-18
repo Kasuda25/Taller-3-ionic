@@ -22,11 +22,11 @@ export class HomePage {
 
   
   goToPetList() {
-    this.navCtrl.navigateForward('/pet-list'); 
+    this.navCtrl.navigateForward('/petlist'); 
   }
 
   goToPetForm() {
-    this.navCtrl.navigateForward('/pet-form'); 
+    this.navCtrl.navigateForward('/petform'); 
   }
 
   goToVaccinePage() {
