@@ -15,6 +15,10 @@
         <p>Edad: {{ pet.age }} años</p>
         <p>Raza: {{ pet.breed }}</p>
       </ion-label>
+      <ion-button
+      (click)="onViewVaccines($event, pet)">Ver vacunas
+      <ion-icon name="bandage-outline" size="large"></ion-icon>
+    </ion-button>
     </ion-item>
   </ion-list>
   <ng-template #noPets>

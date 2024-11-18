@@ -37,7 +37,7 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'vaccine',
+    path: 'vaccine/:id',
     loadChildren: () => import('src/app/pages/vaccine/vaccine.module').then(m => m.VaccinePageModule),
     canActivate: [authGuard]
   },
