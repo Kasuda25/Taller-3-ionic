@@ -1,12 +1,23 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { from, Observable, switchMap } from 'rxjs';
 import { AuthService } from '../Auth/auth.service';
+
+export interface Pet {
+  id?: string;
+  name: string;
+  breed: string;
+  bithDate: string;
+  age: string;
+  owner: string;
+  image: string,
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class DatabaseService {
+  private PetsTable = 'pets'
   constructor(
     public fireStore: AngularFirestore,
     public authsrv: AuthService
@@ -62,4 +73,20 @@ export class DatabaseService {
       throw error;
     }
   }
+  public getUserPets(owner: string): Observable<Pet[]> {
+    return from(this.authsrv.isAuth()).pipe(
+      switchMap((isAuth) => {
+        if (isAuth) {
+          return this.fireStore
+            .collection<Pet>(this.PetsTable, (ref) =>
+              ref.where('owner', '==', owner)
+            )
+            .valueChanges();
+        } else {
+          throw new Error('User not authenticated.');
+        }
+      })
+    );
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Pet } from '../pets/pet.model';
+import { Pet } from 'src/app/shared/services/database/database.service';
+
 
 @Component({
   selector: 'app-petform',

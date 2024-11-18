@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/shared/services/database/database.service';
 import { Pet } from '../pets/pet.model';
-import { NavController } from '@ionic/angular';
-
-
 
 @Component({
   selector: 'app-petlist',
@@ -11,15 +8,20 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./petlist.page.scss'],
 })
 export class PetlistPage implements OnInit {
-  pets: Pet[] = [];
+  userPets$!: Observable<Pet[]>;
 
+  constructor(private petService: DatabaseService) { }
 
-  constructor(private petService: DatabaseService, private navCtrl: NavController) { }
+  async ngOnInit() {
+    this.loadUserPets();
+  }
 
-  ngOnInit() {
-    this.petService.getPets().subscribe((pets) => {
-      this.pets = pets;
-    });
+  private async loadUserPets() {
+    await this.loadingSrv.show();
+    const owner = await this.authSrv.getCurrentUid();
+    this.userPets$ = this.dbSrv.getUserPets(owner);
+    await this.loadingSrv.dismiss();
+    
   }
 
   onEdit(pet: Pet) {

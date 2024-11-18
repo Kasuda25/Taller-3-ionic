@@ -40,7 +40,6 @@ export class ProfilePage implements OnInit {
       async data => {
         this.user = data;
 
-        // this.image.setValue(this.user.image);
         if (this.user) {
           this.profileForm.patchValue({
             name: this.user.name || '',
