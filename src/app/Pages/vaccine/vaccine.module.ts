@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { VaccinePageRoutingModule } from 'src/app/Pages/vaccine/vaccine-routing.module';
 import { VaccinePage } from './vaccine.page';
-import { VaccineComponentComponent } from 'src/app/vaccine-component/vaccine-component.component';
+import { VaccineComponentComponent } from 'src/app/shared/components/button/vaccine-component/vaccine-component.component';
 
 
 @NgModule({
