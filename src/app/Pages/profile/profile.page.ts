@@ -20,12 +20,14 @@ export class ProfilePage implements OnInit {
   public email!: FormControl;
   public phone!: FormControl;
   public age!: FormControl;
-  // public image!: FormControl;
+  public image!: FormControl;
   public profileForm!: FormGroup;
 
   constructor(private readonly authSrv: AuthService, private readonly dbSrv: DatabaseService, private readonly loadingSrv: LoadingserviceService, private readonly navCtrl: NavController, private readonly toastSrv: ToastService) { }
 
   async ngOnInit() {
+    this.initForm();
+
     this.id = await this.authSrv.getCurrentUid();
 
     this.getUserData();
@@ -34,25 +36,29 @@ export class ProfilePage implements OnInit {
 
   private async getUserData() {
     await this.loadingSrv.show();
-    this.dbSrv.getUserByUid(this.id)
-      .subscribe(
-        async data => {
-          this.user = data;
+    this.dbSrv.getUserByUid(this.id).subscribe(
+      async data => {
+        this.user = data;
 
-          // this.image.setValue(this.user.image);
-          this.name.setValue(this.user.name);
-          this.lastName.setValue(this.user.lastName);
-          this.email.setValue(this.user.email);
-          this.age.setValue(this.user.age);
-          this.phone.setValue(this.user.phone);
-        },
-        error => {
-          console.error(error);
+        // this.image.setValue(this.user.image);
+        if (this.user) {
+          this.profileForm.patchValue({
+            name: this.user.name || '',
+            lastName: this.user.lastName || '',
+            email: await this.authSrv.getEmail() || '',
+            age: this.user.age || '',
+            phone: this.user.phone || '',
+            image: this.user.image || ''
+          });
         }
-      );
-    await this.loadingSrv.dismiss();
+        await this.loadingSrv.dismiss();
+      },
+      async (error) => {
+        console.error(error);
+        await this.loadingSrv.dismiss();
+      }
+    );
   }
-
 
   goBack() {
     this.navCtrl.back();
@@ -71,7 +77,7 @@ export class ProfilePage implements OnInit {
   }
 
   private initForm() {
-    // this.image = new FormControl('');
+    this.image = new FormControl('');
     this.name = new FormControl('');
     this.lastName = new FormControl('');
     this.email = new FormControl('');
@@ -79,7 +85,7 @@ export class ProfilePage implements OnInit {
     this.phone = new FormControl('');
 
     this.profileForm = new FormGroup({
-      // image: this.image,
+      image: this.image,
       name: this.name,
       lastName: this.lastName,
       email: this.email,

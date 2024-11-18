@@ -53,4 +53,12 @@ export class AuthService {
       });
     });
   }
+
+  public getEmail(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.fbAuth.currentUser.then((res) => {
+        resolve(res?.email || "");
+      });
+    });
+  }
 }

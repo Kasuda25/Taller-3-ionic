@@ -13,6 +13,7 @@ import { LoadingserviceService } from 'src/app/shared/controllers/loadingservice
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  isDisabled = false;
   public image!: FormControl;
   public name!: FormControl;
   public lastName!: FormControl;
@@ -33,6 +34,7 @@ export class RegisterPage implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       if (this.id) {
+        this.isDisabled = true;
         this.fillFormForUpdate();
       }
     });
@@ -106,7 +108,7 @@ export class RegisterPage implements OnInit {
           this.image.setValue(this.user.image);
           this.name.setValue(this.user.name);
           this.lastName.setValue(this.user.lastName);
-          this.email.setValue(this.user.email);
+          this.email.setValue(await this.authSrv.getEmail());
           this.password.setValue("******");
           this.age.setValue(this.user.age);
           this.phone.setValue(this.user.phone);

@@ -9,37 +9,37 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-input [control]="name" label="Name" type="text"></app-input>
+            <app-input [control]="name" label="Nombre" type="text"></app-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-input [control]="lastName" label="last Name" type="text"></app-input>
+            <app-input [control]="lastName" label="Apellido" type="text"></app-input>
           </ion-col>
         </ion-row >
         <ion-row>
           <ion-col>
-            <app-input [control]="email" label="Email" type="email"></app-input>
+            <app-input [control]="email" label="Correo" type="email" [disable]="isDisabled"></app-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-input [control]="password" label="Password" type="password"></app-input>
+            <app-input [control]="password" label="Contraseña" type="password" [disable]="isDisabled"></app-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-input [control]="age" label="Age" type="number"></app-input>
+            <app-input [control]="age" label="Edad" type="number"></app-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-input [control]="phone" label="Phone" type="number"></app-input>
+            <app-input [control]="phone" label="Teléfono" type="number"></app-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <app-button [disable]="registerForm.invalid" value="register" type="submit"></app-button>
+            <app-button [disable]="registerForm.invalid" value="Ok" type="submit"></app-button>
           </ion-col>
         </ion-row>
       </form>

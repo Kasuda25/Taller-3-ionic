@@ -29,17 +29,17 @@
             </ion-row >
             <ion-row>
               <ion-col>
-                <app-input  label="Email" type="email" [disable]="isDisabled"></app-input>
+                <app-input [control]="email" label="Email" type="email" [disable]="isDisabled"></app-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <app-input label="Edad" type="number" [disable]="isDisabled"></app-input>
+                <app-input [control]="age" label="Edad" type="number" [disable]="isDisabled"></app-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <app-input label="Celular" type="number" [disable]="isDisabled"></app-input>
+                <app-input [control]="phone" label="Teléfono" type="number" [disable]="isDisabled"></app-input>
               </ion-col>
             </ion-row>
           </form>
