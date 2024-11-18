@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PetListComponent } from './petlist.component';
+import { PetListComponent } from 'src/app/pages/pets/petlist/petlist.component';
 
 describe('PetListComponent', () => {
   let component: PetListComponent;
