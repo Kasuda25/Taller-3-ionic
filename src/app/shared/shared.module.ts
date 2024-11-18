@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ButtonComponent } from './Components/button/button.component';
+import { ButtonComponent } from './components/button/button.component';
 
 const COMPONENTS = [ButtonComponent];
 

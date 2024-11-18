@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Pet } from 'src/app/Pages/pets/pets/pet.model';
+import { Pet } from 'src/app/pages/pets/pets/pet.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

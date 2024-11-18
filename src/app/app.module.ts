@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { PetModule } from './Pages/pets/pets/pets.module';
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';

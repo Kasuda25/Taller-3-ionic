@@ -4,15 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('src/app/Pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('src/app/pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('src/app/Pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('src/app/pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('src/app/Pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('src/app/pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: '',
@@ -21,37 +21,19 @@ const routes: Routes = [
   },
   {
     path: 'vaccine',
-    loadChildren: () => import('src/app/Pages/vaccine/vaccine.module').then( m => m.VaccinePageModule)
-  },
-
-  {
-    path: 'home',
-    loadChildren: () => import('src/app/Pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('src/app/Pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('src/app/Pages/register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('src/app/pages/vaccine/vaccine.module').then( m => m.VaccinePageModule)
   },
   {
     path: 'pets',
-    loadChildren: () => import('src/app/Pages/pets/pets/pets.module').then( m => m.PetModule)
+    loadChildren: () => import('src/app/pages/pets/pets/pets.module').then( m => m.PetModule)
   },
   {
     path: 'petform',
-    loadChildren: () => import('src/app/Pages/pets/petform/petform.component').then( m => m.PetFormComponent)
+    loadChildren: () => import('src/app/pages/pets/petform/petform.component').then( m => m.PetFormComponent)
   },
   {
     path: 'petlist',
-    loadChildren: () => import('src/app/Pages/pets/petlist/petlist.component').then( m => m.PetListComponent)
+    loadChildren: () => import('src/app/pages/pets/petlist/petlist.component').then( m => m.PetListComponent)
   },
 
 

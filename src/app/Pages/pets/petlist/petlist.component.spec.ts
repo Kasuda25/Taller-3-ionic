@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PetlistComponent } from './petlist.component';
+import { PetListComponent } from './petlist.component';
 
-describe('PetlistComponent', () => {
-  let component: PetlistComponent;
-  let fixture: ComponentFixture<PetlistComponent>;
+describe('PetListComponent', () => {
+  let component: PetListComponent;
+  let fixture: ComponentFixture<PetListComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetlistComponent ],
+      declarations: [ PetListComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PetlistComponent);
+    fixture = TestBed.createComponent(PetListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

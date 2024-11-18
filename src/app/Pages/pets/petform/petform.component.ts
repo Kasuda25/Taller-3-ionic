@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Pet } from 'src/app/Pages/pets/pets/pet.model';  // Asegúrate de crear un modelo Pet
+import { Pet } from 'src/app/pages/pets/pets/pet.model';  // Asegúrate de crear un modelo Pet
 
 @Component({
   selector: 'app-pet-form',
