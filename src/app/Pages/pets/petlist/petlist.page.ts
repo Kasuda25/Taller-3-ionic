@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/shared/services/database/database.service';
-import { Pet } from '../pets/pet.model';
+import { Pet } from 'src/app/shared/services/database/database.service';
+import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/shared/services/Auth/auth.service';
+import { LoadingserviceService } from 'src/app/shared/controllers/loadingservice/loadingservice.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-petlist',
@@ -8,29 +12,37 @@ import { Pet } from '../pets/pet.model';
   styleUrls: ['./petlist.page.scss'],
 })
 export class PetlistPage implements OnInit {
-  userPets$!: Observable<Pet[]>;
+  userPets$!: Observable<Pet[]>;  // Esta es la propiedad que necesitas
 
-  constructor(private petService: DatabaseService) { }
+  constructor(
+    private petService: DatabaseService,
+    private navCtrl: NavController,
+    private authSrv: AuthService,
+    private loadingSrv: LoadingserviceService
+  ) {}
 
   async ngOnInit() {
-    this.loadUserPets();
+    await this.loadUserPets();
   }
 
   private async loadUserPets() {
-    await this.loadingSrv.show();
-    const owner = await this.authSrv.getCurrentUid();
-    this.userPets$ = this.dbSrv.getUserPets(owner);
-    await this.loadingSrv.dismiss();
-    
+    try {
+      await this.loadingSrv.show();
+      const ownerId = await this.authSrv.getCurrentUid();
+      this.userPets$ = this.petService.getUserPets(ownerId);  // Asignación correcta de la propiedad
+    } catch (error) {
+      console.error('Error al cargar las mascotas del usuario:', error);
+    } finally {
+      await this.loadingSrv.dismiss();
+    }
   }
 
   onEdit(pet: Pet) {
-    console.log('Editar mascota', pet);
+    console.log('Editar mascota:', pet);
   }
 
   onViewVaccines(event: Event, pet: Pet) {
     event.stopPropagation();
     this.navCtrl.navigateForward(`/vaccine/${pet.id}`);
   }
- 
 }
