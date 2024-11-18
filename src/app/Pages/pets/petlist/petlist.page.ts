@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'src/app/shared/services/database/database.service';
-import { Pet } from '../pets/pet.model';
+import { DatabaseService, Pet } from 'src/app/shared/services/database/database.service';
+import { AuthService } from 'src/app/shared/services/Auth/auth.service';
+import { Observable } from 'rxjs';
+import { LoadingserviceService } from 'src/app/shared/controllers/loadingservice/loadingservice.service';
 
 @Component({
   selector: 'app-petlist',
@@ -8,14 +10,25 @@ import { Pet } from '../pets/pet.model';
   styleUrls: ['./petlist.page.scss'],
 })
 export class PetlistPage implements OnInit {
-  pets: Pet[] = [];
+  userPets$!: Observable<Pet[]>;
 
-  constructor(private petService: DatabaseService) { }
+  constructor(
+    private readonly dbSrv: DatabaseService,
+    private readonly authSrv: AuthService,
+    private readonly loadingSrv : LoadingserviceService
 
-  ngOnInit() {
-    this.petService.getPets().subscribe((pets) => {
-      this.pets = pets;
-    });
+  ) { }
+
+  async ngOnInit() {
+    this.loadUserPets();
+  }
+
+  private async loadUserPets() {
+    await this.loadingSrv.show();
+    const owner = await this.authSrv.getCurrentUid();
+    this.userPets$ = this.dbSrv.getUserPets(owner);
+    await this.loadingSrv.dismiss();
+    
   }
 
   onEdit(pet: Pet) {

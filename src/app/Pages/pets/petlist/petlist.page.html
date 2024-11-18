@@ -1,12 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Lista de Mascotas</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let pet of pets" (click)="onEdit(pet)">
+  <ion-list *ngIf="(userPets$ | async)?.length; else noPets">
+    <ion-item *ngFor="let pet of userPets$ | async" (click)="onEdit(pet)">
       <ion-label>
         <h2>{{ pet.name }}</h2>
         <p>Edad: {{ pet.age }} años</p>
@@ -14,4 +8,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ng-template #noPets>
+    <p>No tienes mascotas registradas.</p>
+  </ng-template>
 </ion-content>
