@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Vacunas</ion-title>
+    <ion-buttons slot="end">
+      <app-button (doClick)="profile()" value="Mi Perfil" color="tertiary"></app-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +29,7 @@
     <ion-item *ngFor="let vaccine of vaccines; let i = index">
       <ion-label>
         <h2>{{ vaccine.name }}</h2>
-        <p>Fecha: {{ vaccine.date | date }}</p>
+        <p>Fecha: {{ vaccine.applicationDate | date }}</p>
       </ion-label>
       <ion-button fill="clear" color="secondary" (click)="onEditVaccine(i)">
         Editar
@@ -40,4 +43,10 @@
   <ion-text *ngIf="vaccines.length === 0">
     <p class="ion-text-center">No hay vacunas registradas.</p>
   </ion-text>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goBack()" color="medium">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

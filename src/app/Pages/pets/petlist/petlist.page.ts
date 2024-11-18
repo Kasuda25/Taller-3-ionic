@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./petlist.page.scss'],
 })
 export class PetlistPage implements OnInit {
-  userPets$!: Observable<Pet[]>;  // Esta es la propiedad que necesitas
+  userPets$!: Observable<Pet[]>;
 
   constructor(
     private readonly dbSrv: DatabaseService,
