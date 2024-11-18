@@ -15,7 +15,7 @@ import { ToastService } from 'src/app/shared/controllers/toastservice/toastservi
 export class PetformPage implements OnInit {
   @Input() pet: Pet | null = null;
   petForm: FormGroup;
-  owner = this.authSrv.getCurrentUid();
+  owner: any;
 
   constructor(
     private fb: FormBuilder,
@@ -30,20 +30,20 @@ export class PetformPage implements OnInit {
       breed: ['', [Validators.required]],
       birthDate: ['', [Validators.required]],
       age: ['', [Validators.required, Validators.min(1)]],
-      owner: `users/${this.owner}`,
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     if (this.pet) {
       this.petForm.patchValue(this.pet);
     }
   }
 
   async onSubmit() {
+    this.owner = await this.authSrv.getCurrentUid();
     if (this.petForm.valid) {
       await this.loadingSrv.show();
-      const petData = this.petForm.value;
+      const petData = {owner: this.owner, ...this.petForm.value};
       await this.dbSrv.addPet(petData);
       await this.loadingSrv.dismiss();
       await this.toastSrv.presentToast('Se ha añadido a tu mascota.', 'success', 'checkmark');
