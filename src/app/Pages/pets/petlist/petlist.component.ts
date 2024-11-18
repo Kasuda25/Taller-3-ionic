@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PetService } from '../services/pet.service';
+import { DatabaseService } from 'src/app/shared/services/database/database.service';
 import { Pet } from 'src/app/pages/pets/pets/pet.model';
 
 @Component({
@@ -10,7 +10,7 @@ import { Pet } from 'src/app/pages/pets/pets/pet.model';
 export class PetListComponent implements OnInit {
   pets: Pet[] = [];
 
-  constructor(private petService: PetService) {}
+  constructor(private petService: DatabaseService) {}
 
   ngOnInit() {
     this.petService.getPets().subscribe((pets) => {

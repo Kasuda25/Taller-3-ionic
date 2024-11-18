@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Pet } from 'src/app/pages/pets/pets/pet.model';  // Asegúrate de crear un modelo Pet
+import { Pet } from 'src/app/pages/pets/pets/pet.model'; 
 
 @Component({
   selector: 'app-pet-form',
@@ -8,7 +8,7 @@ import { Pet } from 'src/app/pages/pets/pets/pet.model';  // Asegúrate de crear
   styleUrls: ['./petform.component.scss'],
 })
 export class PetFormComponent implements OnInit {
-  @Input() pet: Pet | null = null;  // Permite editar una mascota existente
+  @Input() pet: Pet | null = null;  
   petForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
