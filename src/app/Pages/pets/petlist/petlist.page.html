@@ -1,3 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis mascotas</ion-title>
+    <ion-buttons slot="end">
+      <app-button (doClick)="profile()" value="Mi Perfil" color="tertiary"></app-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-list *ngIf="(userPets$ | async)?.length; else noPets">
     <ion-item *ngFor="let pet of userPets$ | async" (click)="onEdit(pet)">
@@ -11,4 +20,9 @@
   <ng-template #noPets>
     <p>No tienes mascotas registradas.</p>
   </ng-template>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goBack()" color="medium">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

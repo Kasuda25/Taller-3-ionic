@@ -5,22 +5,33 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input formControlName="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Edad</ion-label>
-      <ion-input formControlName="age" type="number"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Raza</ion-label>
-      <ion-input formControlName="breed"></ion-input>
-    </ion-item>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Edad</ion-label>
+          <ion-input formControlName="age" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Raza</ion-label>
+          <ion-input formControlName="breed"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Fecha de nacimiento</ion-label>
+          <ion-input formControlName="birthDate"></ion-input>
+        </ion-item>
+        <app-button [disable]="petForm.invalid" value="Ok" type="submit"></app-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-button expand="full" type="submit" [disabled]="petForm.invalid">
-      {{ pet ? 'Actualizar' : 'Agregar' }}
-    </ion-button>
-  </form>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goBack()" color="medium">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
