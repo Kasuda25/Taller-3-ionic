@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PetformComponent } from './petform.component';
+import { PetFormComponent } from './petform.component';
 
 describe('PetformComponent', () => {
-  let component: PetformComponent;
-  let fixture: ComponentFixture<PetformComponent>;
+  let component: PetFormComponent;
+  let fixture: ComponentFixture<PetFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetformComponent ],
+      declarations: [ PetFormComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PetformComponent);
+    fixture = TestBed.createComponent(PetFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
