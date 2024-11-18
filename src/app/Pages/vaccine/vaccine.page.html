@@ -1,32 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vaccine</ion-title>
+    <ion-title>Vacunas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">VACCINES</ion-title>
-      <ion-col size="6">
-        <ion-button (click)="goToVaccinePage()">Agregar Vacuna</ion-button>
-             
-            <ion-icon name="add-circle" size="large"></ion-icon>
-
-
-            <ion-content [fullscreen]="true">
-             
-              <app-vaccine-component (vaccineAdded)="addVaccine($event)"></app-vaccine-component>
-            
-              <ion-list>
-               
-                <ion-item *ngFor="let vaccine of vaccines">
-                  <ion-label>{{ vaccine.name }} - {{ vaccine.date }}</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-content>
-        
-      </ion-col>
+      <ion-title size="large">Vacunas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-between ion-padding">
+      <ion-col size="6">
+        <ion-button expand="full" color="primary" (click)="onAddVaccine()">
+          Agregar Vacuna
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list *ngIf="vaccines.length > 0">
+    <ion-item *ngFor="let vaccine of vaccines; let i = index">
+      <ion-label>
+        <h2>{{ vaccine.name }}</h2>
+        <p>Fecha: {{ vaccine.date | date }}</p>
+      </ion-label>
+      <ion-button fill="clear" color="secondary" (click)="onEditVaccine(i)">
+        Editar
+      </ion-button>
+      <ion-button fill="clear" color="danger" (click)="onDeleteVaccine(i)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="vaccines.length === 0">
+    <p class="ion-text-center">No hay vacunas registradas.</p>
+  </ion-text>
 </ion-content>
