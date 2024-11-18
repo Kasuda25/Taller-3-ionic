@@ -4,8 +4,8 @@ import { Pet } from 'src/app/pages/pets/pets/pet.model';  // Asegúrate de crear
 
 @Component({
   selector: 'app-pet-form',
-  templateUrl: './pet-form.component.html',
-  styleUrls: ['./pet-form.component.scss'],
+  templateUrl: './petform.component.html',
+  styleUrls: ['./petform.component.scss'],
 })
 export class PetFormComponent implements OnInit {
   @Input() pet: Pet | null = null;  // Permite editar una mascota existente

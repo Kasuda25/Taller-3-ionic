@@ -4,8 +4,8 @@ import { Pet } from 'src/app/pages/pets/pets/pet.model';
 
 @Component({
   selector: 'app-pet-list',
-  templateUrl: './pet-list.component.html',
-  styleUrls: ['./pet-list.component.scss'],
+  templateUrl: './petlist.component.html',
+  styleUrls: ['./petlist.component.scss'],
 })
 export class PetListComponent implements OnInit {
   pets: Pet[] = [];

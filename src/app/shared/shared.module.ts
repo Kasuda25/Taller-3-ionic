@@ -1,18 +1,48 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ButtonComponent } from './components/button/button.component';
+import { InputComponent } from './components/input/input.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
+import { ToastService } from './controllers/toastservice/toastservice.service';
+import { LoadingserviceService } from './controllers/loadingservice/loadingservice.service';
+import { LocalNotificationsService } from './controllers/localnotifications/local-notifications.service';
+import { StorageService } from './services/storage/storage.service';
+import { DatabaseService } from './services/database/database.service';
+import { AuthService } from './services/Auth/auth.service'; 
 
-const COMPONENTS = [ButtonComponent];
+const COMPONENTS = [
+  ButtonComponent,
+  InputComponent,
+  AvatarComponent
+];
+
+const MODULES = [
+  CommonModule,
+  FormsModule,
+  IonicModule,
+  ReactiveFormsModule
+];
+
+const PROVIDERS = [
+  StorageService,
+  DatabaseService,
+  AuthService
+]
+
+const CONTROLLERS = [
+  ToastService,
+  LoadingserviceService,
+  LocalNotificationsService
+];
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule
+    ...MODULES,
   ],
-  exports: [...COMPONENTS]
+  providers:[ ... PROVIDERS, ...CONTROLLERS],
+  exports: [...COMPONENTS, ...MODULES]
 })
 export class SharedModule { }

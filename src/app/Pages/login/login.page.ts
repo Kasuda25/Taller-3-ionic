@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/shared/services/Auth/auth.service';
-import { LoadingserviceService } from 'src/app/shared/services/loadingservice/loadingservice.service';
-import { ToastService } from 'src/app/shared/services/toastservice/toastservice.service';
+import { LoadingserviceService } from 'src/app/shared/controllers/loadingservice/loadingservice.service';
+import { ToastService } from 'src/app/shared/controllers/toastservice/toastservice.service';
 
 
 @Component({

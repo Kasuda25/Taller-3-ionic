@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DatabaseService } from 'src/app/shared/services/database/database.service';
 import { AuthService } from 'src/app/shared/services/Auth/auth.service';
-import { ToastService } from 'src/app/shared/services/toastservice/toastservice.service';
-import { LoadingserviceService } from 'src/app/shared/services/loadingservice/loadingservice.service';
+import { ToastService } from 'src/app/shared/controllers/toastservice/toastservice.service';
+import { LoadingserviceService } from 'src/app/shared/controllers/loadingservice/loadingservice.service';
 
 @Component({
   selector: 'app-register',
